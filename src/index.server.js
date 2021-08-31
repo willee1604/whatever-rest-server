@@ -5,6 +5,9 @@ const mongoose = require("mongoose");
 const path = require("path");
 const cors = require("cors");
 
+//environment variable or you can say constants
+env.config();
+
 //routes
 const authRoutes = require("./routes/auth");
 const adminRoutes = require("./routes/admin/auth");
@@ -17,9 +20,8 @@ const addressRoutes = require("./routes/address");
 const orderRoutes = require("./routes/order");
 const adminOrderRoute = require("./routes/admin/order.routes");
 
-//environment variable or you can say constants
-env.config();
-
+// mongodb connection
+//mongodb+srv://root:<password>@cluster0.8pl1w.mongodb.net/<dbname>?retryWrites=true&w=majority
 //  MongoDB connection
 //  mongodb+srv://willee:<password>@clusterwhatever.gv3cy.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
 mongoose.connect (
@@ -49,4 +51,5 @@ app.use("/api", adminOrderRoute);
 
 app.listen(process.env.PORT, () => {
   console.log(`Server is running on port ${process.env.PORT}`);
+  console.log(process.env);
 });

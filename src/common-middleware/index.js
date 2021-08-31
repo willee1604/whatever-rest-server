@@ -24,26 +24,26 @@ const storage = multer.diskStorage({
 const accessKeyId = process.env.accessKeyId;
 const secretAccessKey = process.env.secretAccessKey;
 
-const s3 = new aws.S3({
-  accessKeyId,
-  secretAccessKey,
-});
+// const s3 = new aws.S3({
+//   accessKeyId,
+//   secretAccessKey,
+// });
 
 exports.upload = multer({ storage });
 
-exports.uploadS3 = multer({
-  storage: multerS3({
-    s3: s3,
-    bucket: "flipkart-clone-app",
-    acl: "public-read",
-    metadata: function (req, file, cb) {
-      cb(null, { fieldName: file.fieldname });
-    },
-    key: function (req, file, cb) {
-      cb(null, shortid.generate() + "-" + file.originalname);
-    },
-  }),
-});
+// exports.uploadS3 = multer({
+//   storage: multerS3({
+//     s3: s3,
+//     bucket: "flipkart-clone-app",
+//     acl: "public-read",
+//     metadata: function (req, file, cb) {
+//       cb(null, { fieldName: file.fieldname });
+//     },
+//     key: function (req, file, cb) {
+//       cb(null, shortid.generate() + "-" + file.originalname);
+//     },
+//   }),
+// });
 
 exports.uploadImages = function (pathArray) {
   return new Promise((resolve, reject) => {

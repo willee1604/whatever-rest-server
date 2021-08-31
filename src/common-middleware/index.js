@@ -21,8 +21,8 @@ const storage = multer.diskStorage({
   },
 });
 
-const accessKeyId = process.env.accessKeyId;
-const secretAccessKey = process.env.secretAccessKey;
+// const accessKeyId = process.env.accessKeyId;
+// const secretAccessKey = process.env.secretAccessKey;
 
 // const s3 = new aws.S3({
 //   accessKeyId,

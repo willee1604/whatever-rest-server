@@ -59,25 +59,25 @@ exports.getProductsBySlug = (req, res) => {
               res.status(200).json({
                 products,
                 priceRange: {
+                  under1k: 500,
+                  under3k: 2000,
                   under5k: 5000,
-                  under10k: 10000,
-                  under15k: 15000,
-                  under20k: 20000,
-                  under30k: 30000,
+                  under7k: 7000,
+                  over7k: 99999999,
                 },
                 productsByPrice: {
-                  under5k: products.filter((product) => product.price <= 5000),
-                  under10k: products.filter(
-                    (product) => product.price > 5000 && product.price <= 10000
+                  under1k: products.filter((product) => product.price <= 500),
+                  under3k: products.filter(
+                    (product) => product.price > 500 && product.price <= 2000
                   ),
-                  under15k: products.filter(
-                    (product) => product.price > 10000 && product.price <= 15000
+                  under5k: products.filter(
+                    (product) => product.price > 2000 && product.price <= 5000
                   ),
-                  under20k: products.filter(
-                    (product) => product.price > 15000 && product.price <= 20000
+                  under7k: products.filter(
+                    (product) => product.price > 5000 && product.price <= 7000
                   ),
-                  under30k: products.filter(
-                    (product) => product.price > 20000 && product.price <= 30000
+                  over7k: products.filter(
+                    (product) => product.price > 7000 
                   ),
                 },
               });
